@@ -17,17 +17,23 @@ namespace CMS1
             InitializeComponent();
         }
 
-        static string NewProjectPath;
+        public static string NewProjectPath;
 
         private void NewProjectButton_Click(object sender, EventArgs e)
         {
 
             folderBrowserDialog1.Reset();
 
-            DialogResult NewProjectPath = folderBrowserDialog1.ShowDialog();
+            DialogResult NewProjectResult = folderBrowserDialog1.ShowDialog();
 
-            if(NewProjectPath == DialogResult.OK)
+            if(NewProjectResult == DialogResult.OK)
             {
+
+                NewProjectPath = folderBrowserDialog1.SelectedPath;
+                NewProjectPath = NewProjectPath + @"\";
+
+                Console.Out.WriteLine(NewProjectPath);
+
             }
 
         }

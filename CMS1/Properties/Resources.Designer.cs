@@ -63,6 +63,16 @@ namespace CMS1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Logo_text {
+            get {
+                object obj = ResourceManager.GetObject("Logo_text", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap NewProjectButton {
             get {
                 object obj = ResourceManager.GetObject("NewProjectButton", resourceCulture);
@@ -76,6 +86,16 @@ namespace CMS1.Properties {
         internal static System.Drawing.Bitmap OpenProjectButton {
             get {
                 object obj = ResourceManager.GetObject("OpenProjectButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TopBar {
+            get {
+                object obj = ResourceManager.GetObject("TopBar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

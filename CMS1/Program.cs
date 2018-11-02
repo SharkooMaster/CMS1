@@ -22,9 +22,17 @@ namespace CMS1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
+            if(Form1.MainWindow == true)
+            {
+                Console.Out.WriteLine("Main window has bin launched. First Window has bin closed.");
+                Console.Out.WriteLine("File has bin saved to: " + Form1.NewProjectPath);
+                Application.Run(new CmsMain());
+            }
+
         }
 
-        public static void console()
+        public static void ConsoleOutput()
         {
             Console.OpenStandardInput();
             Console.OpenStandardOutput();

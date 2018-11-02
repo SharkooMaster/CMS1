@@ -18,11 +18,27 @@ namespace CMS1
         [STAThread]
         public static void Main(string[] args)
         {
+            console();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 
+            
+        }
 
+        static void console()
+        {
+            string commands = Convert.ToString(Console.ReadLine());
+            switch (commands)
+            {
+                case "exit":
+                    Application.Exit();
+                    break;
+                default:
+                    Console.WriteLine("Unknown Command");
+                    break;
+
+            }
         }
 
     }

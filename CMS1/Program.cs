@@ -19,6 +19,6 @@ namespace CMS1
             Application.Run(new Form1());
         }
 
-        //wassup my man
+        //gud my man
     }
 }

@@ -22,9 +22,12 @@ namespace CMS1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
+            Console.Out.WriteLine(Form1.NewProjectPath);
+
         }
 
-        public static void console()
+        public static void console() //Console Commands
         {
             Console.OpenStandardInput();
             Console.OpenStandardOutput();

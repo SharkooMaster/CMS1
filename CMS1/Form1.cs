@@ -16,5 +16,20 @@ namespace CMS1
         {
             InitializeComponent();
         }
+
+        static string NewProjectPath;
+
+        private void NewProjectButton_Click(object sender, EventArgs e)
+        {
+
+            folderBrowserDialog1.Reset();
+
+            DialogResult NewProjectPath = folderBrowserDialog1.ShowDialog();
+
+            if(NewProjectPath == DialogResult.OK)
+            {
+            }
+
+        }
     }
 }

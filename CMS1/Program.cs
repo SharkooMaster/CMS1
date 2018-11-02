@@ -18,16 +18,16 @@ namespace CMS1
         [STAThread]
         public static void Main(string[] args)
         {
-            console();
+            Console.Out.WriteLine("Application has started.");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-
-            
         }
 
-        static void console()
+        public static void console()
         {
+            Console.OpenStandardInput();
+            Console.OpenStandardOutput();
             string commands = Convert.ToString(Console.ReadLine());
             switch (commands)
             {
@@ -37,7 +37,6 @@ namespace CMS1
                 default:
                     Console.WriteLine("Unknown Command");
                     break;
-
             }
         }
 

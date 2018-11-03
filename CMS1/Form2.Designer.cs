@@ -251,6 +251,7 @@
             this.EditList.Size = new System.Drawing.Size(155, 210);
             this.EditList.TabIndex = 19;
             this.EditList.Visible = false;
+            this.EditList.SelectedIndexChanged += new System.EventHandler(this.EditList_SelectedIndexChanged);
             // 
             // LayerList
             // 

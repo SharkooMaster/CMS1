@@ -37,11 +37,6 @@
             this.TypeButton = new System.Windows.Forms.Button();
             this.HelpButtonMain = new System.Windows.Forms.Button();
             this.WindowButton = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.FileButton = new System.Windows.Forms.Button();
             this.FileList = new System.Windows.Forms.ListBox();
             this.PreviewButton = new System.Windows.Forms.Button();
@@ -56,11 +51,17 @@
             this.FilterList = new System.Windows.Forms.ListBox();
             this.HelpList = new System.Windows.Forms.ListBox();
             this.WindowList = new System.Windows.Forms.ListBox();
+            this.InCmsTestWebSite = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // EditButton
@@ -180,53 +181,6 @@
             this.WindowButton.UseVisualStyleBackColor = false;
             this.WindowButton.Click += new System.EventHandler(this.WindowButton_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.pictureBox2.Image = global::CMS1.Properties.Resources.Logo_text;
-            this.pictureBox2.Location = new System.Drawing.Point(2, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(67, 28);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 11;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CMS1.Properties.Resources.TopBar;
-            this.pictureBox1.Location = new System.Drawing.Point(-8, -3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1953, 40);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.White;
-            this.pictureBox3.Location = new System.Drawing.Point(203, 81);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(1471, 886);
-            this.pictureBox3.TabIndex = 12;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.pictureBox4.Location = new System.Drawing.Point(0, 118);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(95, 785);
-            this.pictureBox4.TabIndex = 13;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.pictureBox5.Location = new System.Drawing.Point(1739, 43);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(189, 986);
-            this.pictureBox5.TabIndex = 14;
-            this.pictureBox5.TabStop = false;
-            // 
             // FileButton
             // 
             this.FileButton.AllowDrop = true;
@@ -263,12 +217,13 @@
             this.PreviewButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
             this.PreviewButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.PreviewButton.ForeColor = System.Drawing.Color.White;
-            this.PreviewButton.Location = new System.Drawing.Point(1653, 7);
+            this.PreviewButton.Location = new System.Drawing.Point(1663, 7);
             this.PreviewButton.Name = "PreviewButton";
             this.PreviewButton.Size = new System.Drawing.Size(75, 23);
             this.PreviewButton.TabIndex = 17;
             this.PreviewButton.Text = "Preview";
             this.PreviewButton.UseVisualStyleBackColor = false;
+            this.PreviewButton.Click += new System.EventHandler(this.PreviewButton_Click);
             // 
             // ExportButton
             // 
@@ -436,12 +391,73 @@
             this.WindowList.TabIndex = 26;
             this.WindowList.Visible = false;
             // 
+            // InCmsTestWebSite
+            // 
+            this.InCmsTestWebSite.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.InCmsTestWebSite.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.InCmsTestWebSite.ForeColor = System.Drawing.Color.White;
+            this.InCmsTestWebSite.Location = new System.Drawing.Point(1582, 7);
+            this.InCmsTestWebSite.Name = "InCmsTestWebSite";
+            this.InCmsTestWebSite.Size = new System.Drawing.Size(75, 23);
+            this.InCmsTestWebSite.TabIndex = 28;
+            this.InCmsTestWebSite.Text = "TestWebsite";
+            this.InCmsTestWebSite.UseVisualStyleBackColor = false;
+            this.InCmsTestWebSite.Click += new System.EventHandler(this.InCmsTestWebSite_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.pictureBox5.Location = new System.Drawing.Point(1739, 43);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(189, 986);
+            this.pictureBox5.TabIndex = 14;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.pictureBox4.Location = new System.Drawing.Point(0, 118);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(95, 785);
+            this.pictureBox4.TabIndex = 13;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.White;
+            this.pictureBox3.Location = new System.Drawing.Point(203, 81);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(1471, 886);
+            this.pictureBox3.TabIndex = 12;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.pictureBox2.Image = global::CMS1.Properties.Resources.Logo_text;
+            this.pictureBox2.Location = new System.Drawing.Point(2, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(67, 28);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 11;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CMS1.Properties.Resources.TopBar;
+            this.pictureBox1.Location = new System.Drawing.Point(-8, -3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1953, 40);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // CmsMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.InCmsTestWebSite);
             this.Controls.Add(this.HelpList);
             this.Controls.Add(this.WindowList);
             this.Controls.Add(this.ViewList);
@@ -469,15 +485,16 @@
             this.Controls.Add(this.ImageButton);
             this.Controls.Add(this.EditButton);
             this.Controls.Add(this.pictureBox1);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Name = "CmsMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CMS";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -512,5 +529,6 @@
         private System.Windows.Forms.ListBox FilterList;
         private System.Windows.Forms.ListBox HelpList;
         private System.Windows.Forms.ListBox WindowList;
+        private System.Windows.Forms.Button InCmsTestWebSite;
     }
 }

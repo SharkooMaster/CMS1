@@ -25,6 +25,17 @@ namespace CMS1
 
             Console.Out.WriteLine(Form1.NewProjectPath);
 
+            Application.Run(new CmsMain());
+
+            if (CmsMain.OpenTestWeb == true)
+            {
+                Application.Run(new Form3());
+            }
+            else
+            {
+                return;
+            }
+
         }
 
         public static void console() //Console Commands

@@ -1,6 +1,6 @@
 ﻿namespace CMS1
 {
-    partial class CmsPreviewWindow
+    partial class Form3
     {
         /// <summary>
         /// Required designer variable.
@@ -28,34 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.InCmsWebPreview = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
-            // webBrowser1
+            // InCmsWebPreview
             // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(1904, 1041);
-            this.webBrowser1.TabIndex = 0;
-            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
+            this.InCmsWebPreview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InCmsWebPreview.Location = new System.Drawing.Point(0, 0);
+            this.InCmsWebPreview.MinimumSize = new System.Drawing.Size(20, 20);
+            this.InCmsWebPreview.Name = "InCmsWebPreview";
+            this.InCmsWebPreview.Size = new System.Drawing.Size(1904, 1041);
+            this.InCmsWebPreview.TabIndex = 0;
+            this.InCmsWebPreview.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.InCmsWebPreview_DocumentCompleted);
             // 
-            // CmsPreviewWindow
+            // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
-            this.Controls.Add(this.webBrowser1);
-            this.Name = "CmsPreviewWindow";
+            this.Controls.Add(this.InCmsWebPreview);
+            this.Name = "Form3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CmsWebsitePreviewer";
+            this.Text = "CmsTestPreview";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Form3_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.WebBrowser InCmsWebPreview;
     }
 }

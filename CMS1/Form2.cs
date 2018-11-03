@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Microsoft.VisualBasic;
+using System.Diagnostics;
+using System.Threading;
 
 namespace CMS1
 {
@@ -21,8 +23,12 @@ namespace CMS1
         }
 
         public static string HtmlExportPath;
-
         public static OpenFileDialog FirstUserChosenPath = new OpenFileDialog();
+        public static string ExportHtmlName;
+
+        public static bool canPreview = false;
+
+        public static string MachineName = Environment.MachineName;
 
         private void ExportButton_Click(object sender, EventArgs e)
         {
@@ -35,10 +41,16 @@ namespace CMS1
                 HtmlExportPath = HTMLExportBrowser.SelectedPath;
                 HtmlExportPath = HtmlExportPath + @"\";
 
-                string ExportHtmlName = Interaction.InputBox("What do you want your folders name to be?", "Name your folder", Form1.NewProjectName);
+                ExportHtmlName = Interaction.InputBox("What do you want your folders name to be?", "Name your folder", Form1.NewProjectName);
 
                 Directory.CreateDirectory(HtmlExportPath + ExportHtmlName);
                 Console.Out.WriteLine(HtmlExportPath);
+
+                FileStream TestHtml = new FileStream(HtmlExportPath + ExportHtmlName + @"\" + Form1.NewProjectName + ".html",FileMode.OpenOrCreate, FileAccess.Write);
+                string TestHtmlPath = HtmlExportPath + ExportHtmlName + @"\" + Form1.NewProjectName + ".html";
+                Console.Out.WriteLine(TestHtmlPath);
+
+                canPreview = true;
 
             }
 
@@ -162,6 +174,31 @@ namespace CMS1
             {
                 HelpList.Visible = true;
             }
+        }
+
+        private void PreviewButton_Click(object sender, EventArgs e)
+        {
+            if (canPreview)
+            {
+                //Grabing preset pathes from when the user exported the html files and launching the site. ((Currently we onyl have a one site system. once we add the multi page system. we will need to check for which page is open before previewing)).
+                Process.Start(HtmlExportPath + ExportHtmlName + @"\" + Form1.NewProjectName + ".html");
+                Console.Out.WriteLine("WebSite (" + ExportHtmlName + ") Has bin lanched on pc: " + MachineName);
+            }
+            else
+            {
+                //Adding a error to guide the user into fixing a issue that WE count as a common issue that many will encounter.
+                MessageBox.Show("You can not view the site before exporting a HTML. click the export button to the right of the preveiw button and export the files and then try again. thank you.", "Error",MessageBoxButtons.OK);
+                Console.Out.WriteLine("User has tried to launch the website before exporting. Error box shown."); ; ;
+                return;
+            }
+            
+        }
+
+        public static bool OpenTestWeb = false;
+
+        private void InCmsTestWebSite_Click(object sender, EventArgs e)
+        {
+            OpenTestWeb = true;
         }
     }
 }

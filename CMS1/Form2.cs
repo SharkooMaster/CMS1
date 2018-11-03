@@ -46,6 +46,7 @@ namespace CMS1
                 Directory.CreateDirectory(HtmlExportPath + ExportHtmlName);
                 Directory.CreateDirectory(HtmlExportPath + ExportHtmlName + @"\" + "Css");
                 Console.Out.WriteLine(HtmlExportPath);
+                Console.Out.WriteLine(HtmlExportPath + ExportHtmlName + @"\" + "Css");
 
                 FileStream TestHtml = new FileStream(HtmlExportPath + ExportHtmlName + @"\" + Form1.NewProjectName + ".html",FileMode.OpenOrCreate, FileAccess.Write);
                 string TestHtmlPath = HtmlExportPath + ExportHtmlName + @"\" + Form1.NewProjectName + ".html";

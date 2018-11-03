@@ -12,15 +12,33 @@ using Microsoft.VisualBasic;
 using System.Diagnostics;
 using System.Threading;
 using System.Windows;
+using System.Windows.Input;
 
 namespace CMS1
 {
     public partial class CmsMain : Form
     {
+
+        public static string TemplateHtmlText = @"
+<!DOCTYPE html>
+
+< html >
+
+< head >
+
+</ head >
+
+< body >
+
+</ body >
+
+</ html > 
+";
+
         public CmsMain()
         {
-            InitializeComponent();
-            this.Text = @"Cms\" + Form1.NewProjectName;
+                InitializeComponent();
+                this.Text = @"Cms\" + Form1.NewProjectName;
         }
 
         public static string HtmlExportPath;
@@ -39,6 +57,7 @@ namespace CMS1
 
             if(HtmlExportResult == DialogResult.OK)
             {
+                
                 HtmlExportPath = HTMLExportBrowser.SelectedPath;
                 HtmlExportPath = HtmlExportPath + @"\";
 
@@ -46,22 +65,35 @@ namespace CMS1
 
                 Directory.CreateDirectory(HtmlExportPath + ExportHtmlName);
                 Directory.CreateDirectory(HtmlExportPath + ExportHtmlName + @"\" + "Css");
+
                 Console.Out.WriteLine(HtmlExportPath);
                 Console.Out.WriteLine(HtmlExportPath + ExportHtmlName + @"\" + "Css");
+
                 if(HtmlExportPath.Contains(ExportHtmlName))
                 {
-                    MessageBox.Show("You can not export files again since they alread exist. would you like to replace them?", "Error", MessageBoxButtons.YesNo);
-                    if (MessageBoxButtons.YesNo.Equals(4))
+                    DialogResult ExportErrorResult = MessageBox.Show("You can not export files again since they alread exist. would you like to replace them?", "Error", MessageBoxButtons.YesNo);
+                    
+                    if (ExportErrorResult == DialogResult.Yes)
                     {
                         File.Delete(HtmlExportPath + ExportHtmlName);
+                        Console.Out.WriteLine("Exsisting ExportedFiles have bin deleted and new one's are being printed right now.");
                         FileStream TestHtml = new FileStream(HtmlExportPath + ExportHtmlName + @"\" + Form1.NewProjectName + ".html", FileMode.OpenOrCreate, FileAccess.Write);
+
                         string TestHtmlPath = HtmlExportPath + ExportHtmlName + @"\" + Form1.NewProjectName + ".html";
+
                         FileStream TestCSS = new FileStream(HtmlExportPath + ExportHtmlName + @"\" + "Css" + @"\" + Form1.NewProjectName + ".css", FileMode.OpenOrCreate, FileAccess.Write);
                         Console.Out.WriteLine(TestHtmlPath);
+
+                        //Closign and flushing the files created so the files can be used in another proceses like (preview)**.
                         TestHtml.Flush();
                         TestCSS.Flush();
                         TestHtml.Close();
                         TestCSS.Close();
+
+                        StreamWriter WriteToTestHtml = new StreamWriter(HtmlExportPath + ExportHtmlName + @"\" + Form1.NewProjectName + ".html");
+                        WriteToTestHtml.WriteLine(TemplateHtmlText);
+                        
+
                     }
                     else
                     {
@@ -229,7 +261,24 @@ namespace CMS1
             TestWebOpen.ShowDialog();
         }
 
+        private void FileList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //0 indicated the first word in the list. so in this case its (new).
+            if (FileList.SelectedIndex == 0)
+            {
+                 DialogResult NewProjectWarning = MessageBox.Show("Are you sure you want to leave this project?", "Warning", MessageBoxButtons.YesNo);
+                if(NewProjectWarning == DialogResult.Yes)
+                {
+                    CmsMain.ActiveForm.Close();
+                    Application.Restart();
+                    Console.Out.WriteLine("CmsMain has bin shutdown. Opening Form1");
+                }
+                else
+                {
+                    return;
+                }
 
-
+            }
+        }
     }
 }

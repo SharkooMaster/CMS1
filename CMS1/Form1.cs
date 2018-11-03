@@ -27,8 +27,11 @@ namespace CMS1
         static int DefaultNameNumber = 0;
         static string FileFormat = ".lol";
 
+        /* Setting up a bool that can be accesed all around the software so we can use the Name the user set for the project for other features as in
+         * exporting. Just to make stuff easier for the user.*/
         public static string NewProjectName;
 
+        //Seeting up a bool that will be set as soon as the user finished choosing file path so that (program.cs) can launch the main editor.
         public static bool MainWindow = false;
 
         private void NewProjectButton_Click(object sender, EventArgs e)
@@ -45,6 +48,7 @@ namespace CMS1
                 NewProjectPath = folderBrowserDialog1.SelectedPath;
                 NewProjectPath = NewProjectPath + @"\";
 
+                //Checking to see if the path user has provided contains the exact same FILE or NAME that has bin used before.
                 if (NewProjectPath.Contains(DefaultName + DefaultNameNumber + FileFormat))
                 {
                     int NewNumber = DefaultNameNumber + 1;
@@ -60,6 +64,7 @@ namespace CMS1
                     FileStream NewProject = new FileStream(NewProjectPath + NewProjectName + ".lol", FileMode.OpenOrCreate, FileAccess.Write);
                     NewProject.Close();
                     this.Close();
+                    //Launching the main editor by sending a request to (program.cs)****.
                     MainWindow = true;
                 }
                 else
@@ -67,7 +72,6 @@ namespace CMS1
                     Console.Out.WriteLine("User Clicked Cancel. Redirecting.");
                     return;
                 }
-
             }
 
         }

@@ -211,6 +211,7 @@
             this.FileList.Size = new System.Drawing.Size(155, 210);
             this.FileList.TabIndex = 16;
             this.FileList.Visible = false;
+            this.FileList.SelectedIndexChanged += new System.EventHandler(this.FileList_SelectedIndexChanged);
             // 
             // PreviewButton
             // 
@@ -378,10 +379,7 @@
             this.WindowList.FormattingEnabled = true;
             this.WindowList.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.WindowList.Items.AddRange(new object[] {
-            "New",
-            "Open",
-            "Save",
-            "SaveAs"});
+            "TextEditor"});
             this.WindowList.Location = new System.Drawing.Point(726, 27);
             this.WindowList.Name = "WindowList";
             this.WindowList.Size = new System.Drawing.Size(155, 210);

@@ -25,7 +25,15 @@ namespace CMS1
 
             Console.Out.WriteLine(Form1.NewProjectPath);
 
-            Application.Run(new CmsMain());
+            //Application.Run(new CmsMain());
+            if (Form1.MainWindow == true)
+            {
+                Application.Run(new CmsMain());
+            }
+            else
+            {
+                return;
+            }
 
         }
 

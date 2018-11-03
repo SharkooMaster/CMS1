@@ -15,7 +15,7 @@ namespace CMS1
         public Form3()
         {
             InitializeComponent();
-            this.InCmsWebPreview.Navigate(CmsMain.HtmlExportPath + CmsMain.ExportHtmlName + @"\" + Form1.NewProjectName + ".html");
+            //this.InCmsWebPreview.Navigate(CmsMain.HtmlExportPath + CmsMain.ExportHtmlName + @"\" + Form1.NewProjectName + ".html");
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -26,7 +26,8 @@ namespace CMS1
         private void InCmsWebPreview_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             //HtmlExportPath + ExportHtmlName + @"\" + Form1.NewProjectName + ".html"
-            //this.InCmsWebPreview.Navigate(CmsMain.HtmlExportPath + CmsMain.ExportHtmlName + @"\" + Form1.NewProjectName + ".html");
+            this.InCmsWebPreview.Refresh();
+            this.InCmsWebPreview.Navigate(CmsMain.HtmlExportPath + CmsMain.ExportHtmlName + @"\" + Form1.NewProjectName + ".html");
         }
 
         private void RefreshButton_Click(object sender, EventArgs e)

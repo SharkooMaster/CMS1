@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.InCmsWebPreview = new System.Windows.Forms.WebBrowser();
+            this.RefreshButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // InCmsWebPreview
@@ -41,11 +42,25 @@
             this.InCmsWebPreview.TabIndex = 0;
             this.InCmsWebPreview.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.InCmsWebPreview_DocumentCompleted);
             // 
+            // RefreshButton
+            // 
+            this.RefreshButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.RefreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RefreshButton.ForeColor = System.Drawing.Color.White;
+            this.RefreshButton.Location = new System.Drawing.Point(1761, 33);
+            this.RefreshButton.Name = "RefreshButton";
+            this.RefreshButton.Size = new System.Drawing.Size(113, 43);
+            this.RefreshButton.TabIndex = 1;
+            this.RefreshButton.Text = "Refresh";
+            this.RefreshButton.UseVisualStyleBackColor = false;
+            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.RefreshButton);
             this.Controls.Add(this.InCmsWebPreview);
             this.Name = "Form3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -59,5 +74,6 @@
         #endregion
 
         private System.Windows.Forms.WebBrowser InCmsWebPreview;
+        private System.Windows.Forms.Button RefreshButton;
     }
 }

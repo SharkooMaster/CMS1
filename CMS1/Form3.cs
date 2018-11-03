@@ -28,5 +28,10 @@ namespace CMS1
             //HtmlExportPath + ExportHtmlName + @"\" + Form1.NewProjectName + ".html"
             //this.InCmsWebPreview.Navigate(CmsMain.HtmlExportPath + CmsMain.ExportHtmlName + @"\" + Form1.NewProjectName + ".html");
         }
+
+        private void RefreshButton_Click(object sender, EventArgs e)
+        {
+            InCmsWebPreview.Refresh();
+        }
     }
 }

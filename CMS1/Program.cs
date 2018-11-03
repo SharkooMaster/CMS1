@@ -27,18 +27,9 @@ namespace CMS1
 
             Application.Run(new CmsMain());
 
-            if (CmsMain.OpenTestWeb == true)
-            {
-                Application.Run(new Form3());
-            }
-            else
-            {
-                return;
-            }
-
         }
 
-        public static void console() //Console Commands
+        public static void DebugConsole() //Console Commands
         {
             Console.OpenStandardInput();
             Console.OpenStandardOutput();

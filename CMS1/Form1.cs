@@ -59,7 +59,6 @@ namespace CMS1
                     Console.Out.WriteLine("File Created. Transfering to MainWindow");
                     FileStream NewProject = new FileStream(NewProjectPath + NewProjectName + ".lol", FileMode.OpenOrCreate, FileAccess.Write);
                     NewProject.Close();
-
                     this.Close();
                     MainWindow = true;
                 }

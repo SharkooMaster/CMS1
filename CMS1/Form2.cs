@@ -44,6 +44,7 @@ namespace CMS1
                 ExportHtmlName = Interaction.InputBox("What do you want your folders name to be?", "Name your folder", Form1.NewProjectName);
 
                 Directory.CreateDirectory(HtmlExportPath + ExportHtmlName);
+                Directory.CreateDirectory(HtmlExportPath + ExportHtmlName + @"\" + "Css");
                 Console.Out.WriteLine(HtmlExportPath);
 
                 FileStream TestHtml = new FileStream(HtmlExportPath + ExportHtmlName + @"\" + Form1.NewProjectName + ".html",FileMode.OpenOrCreate, FileAccess.Write);
@@ -194,11 +195,14 @@ namespace CMS1
             
         }
 
-        public static bool OpenTestWeb = false;
+        public static Form3 TestWebOpen = new Form3();
 
         private void InCmsTestWebSite_Click(object sender, EventArgs e)
         {
-            OpenTestWeb = true;
+            TestWebOpen.ShowDialog();
         }
+
+
+
     }
 }

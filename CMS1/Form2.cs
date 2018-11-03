@@ -11,6 +11,7 @@ using System.IO;
 using Microsoft.VisualBasic;
 using System.Diagnostics;
 using System.Threading;
+using System.Windows;
 
 namespace CMS1
 {
@@ -24,10 +25,10 @@ namespace CMS1
 
         public static string HtmlExportPath;
         public static OpenFileDialog FirstUserChosenPath = new OpenFileDialog();
+
         public static string ExportHtmlName;
 
         public static bool canPreview = false;
-
         public static string MachineName = Environment.MachineName;
 
         private void ExportButton_Click(object sender, EventArgs e)
@@ -46,10 +47,36 @@ namespace CMS1
                 Directory.CreateDirectory(HtmlExportPath + ExportHtmlName);
                 Directory.CreateDirectory(HtmlExportPath + ExportHtmlName + @"\" + "Css");
                 Console.Out.WriteLine(HtmlExportPath);
-
-                FileStream TestHtml = new FileStream(HtmlExportPath + ExportHtmlName + @"\" + Form1.NewProjectName + ".html",FileMode.OpenOrCreate, FileAccess.Write);
-                string TestHtmlPath = HtmlExportPath + ExportHtmlName + @"\" + Form1.NewProjectName + ".html";
-                Console.Out.WriteLine(TestHtmlPath);
+                Console.Out.WriteLine(HtmlExportPath + ExportHtmlName + @"\" + "Css");
+                if(HtmlExportPath.Contains(ExportHtmlName))
+                {
+                    MessageBox.Show("You can not export files again since they alread exist. would you like to replace them?", "Error", MessageBoxButtons.YesNo);
+                    if (MessageBoxButtons.YesNo.Equals(4))
+                    {
+                        File.Delete(HtmlExportPath + ExportHtmlName);
+                        FileStream TestHtml = new FileStream(HtmlExportPath + ExportHtmlName + @"\" + Form1.NewProjectName + ".html", FileMode.OpenOrCreate, FileAccess.Write);
+                        string TestHtmlPath = HtmlExportPath + ExportHtmlName + @"\" + Form1.NewProjectName + ".html";
+                        FileStream TestCSS = new FileStream(HtmlExportPath + ExportHtmlName + @"\" + "Css" + @"\" + Form1.NewProjectName + ".css", FileMode.OpenOrCreate, FileAccess.Write);
+                        Console.Out.WriteLine(TestHtmlPath);
+                        TestHtml.Flush();
+                        TestCSS.Flush();
+                        TestHtml.Close();
+                        TestCSS.Close();
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    FileStream TestHtml = new FileStream(HtmlExportPath + ExportHtmlName + @"\" + Form1.NewProjectName + ".html", FileMode.OpenOrCreate, FileAccess.Write);
+                    string TestHtmlPath = HtmlExportPath + ExportHtmlName + @"\" + Form1.NewProjectName + ".html";
+                    FileStream TestCSS = new FileStream(HtmlExportPath + ExportHtmlName + @"\" + "Css" + @"\" + Form1.NewProjectName + ".css", FileMode.OpenOrCreate, FileAccess.Write);
+                    Console.Out.WriteLine(TestHtmlPath);
+                    TestHtml.Close();
+                    TestCSS.Close();
+                }
 
                 canPreview = true;
 

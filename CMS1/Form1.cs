@@ -65,7 +65,7 @@ namespace CMS1
                 }
                 else
                 {
-                    Console.Out.WriteLine("User Clicked Cancle. Redirecting.");
+                    Console.Out.WriteLine("User Clicked Cancel. Redirecting.");
                     return;
                 }
 

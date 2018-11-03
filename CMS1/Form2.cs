@@ -200,5 +200,10 @@ namespace CMS1
         {
             OpenTestWeb = true;
         }
+
+        private void EditList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

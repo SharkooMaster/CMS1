@@ -52,7 +52,7 @@ namespace CMS1
                     Console.Out.WriteLine(DefaultName);
                 }
 
-                NewProjectName = Interaction.InputBox("What do you want the file name to be?", "Name you'r project", DefaultName);
+                NewProjectName = Interaction.InputBox("What do you want the file name to be?", "Name your project", DefaultName);
 
                 if(NewProjectName.Length > 0)
                 {

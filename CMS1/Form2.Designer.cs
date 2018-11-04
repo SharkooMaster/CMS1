@@ -54,14 +54,20 @@
             this.InCmsTestWebSite = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.Canvas = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ImportImageBrowser = new System.Windows.Forms.OpenFileDialog();
+            this.MainTab = new System.Windows.Forms.Button();
+            this.Canvas = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.TabTextEditor = new System.Windows.Forms.TextBox();
+            this.Tab2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Canvas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Canvas)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // EditButton
@@ -205,7 +211,8 @@
             "New",
             "Open",
             "Save",
-            "SaveAs"});
+            "SaveAs",
+            "ImportImage"});
             this.FileList.Location = new System.Drawing.Point(78, 27);
             this.FileList.Name = "FileList";
             this.FileList.Size = new System.Drawing.Size(155, 210);
@@ -417,15 +424,6 @@
             this.pictureBox4.TabIndex = 13;
             this.pictureBox4.TabStop = false;
             // 
-            // Canvas
-            // 
-            this.Canvas.BackColor = System.Drawing.Color.White;
-            this.Canvas.Location = new System.Drawing.Point(203, 81);
-            this.Canvas.Name = "Canvas";
-            this.Canvas.Size = new System.Drawing.Size(1471, 886);
-            this.Canvas.TabIndex = 12;
-            this.Canvas.TabStop = false;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
@@ -446,12 +444,75 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // ImportImageBrowser
+            // 
+            this.ImportImageBrowser.FileName = "openFileDialog1";
+            this.ImportImageBrowser.Tag = "ImportImageBrowser";
+            // 
+            // MainTab
+            // 
+            this.MainTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.MainTab.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.MainTab.ForeColor = System.Drawing.Color.White;
+            this.MainTab.Location = new System.Drawing.Point(1574, 55);
+            this.MainTab.Name = "MainTab";
+            this.MainTab.Size = new System.Drawing.Size(100, 26);
+            this.MainTab.TabIndex = 30;
+            this.MainTab.Text = "MainTab";
+            this.MainTab.UseVisualStyleBackColor = false;
+            this.MainTab.Click += new System.EventHandler(this.MainTab_Click);
+            // 
+            // Canvas
+            // 
+            this.Canvas.BackColor = System.Drawing.Color.White;
+            this.Canvas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Canvas.Location = new System.Drawing.Point(0, 0);
+            this.Canvas.Name = "Canvas";
+            this.Canvas.Size = new System.Drawing.Size(1471, 886);
+            this.Canvas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Canvas.TabIndex = 12;
+            this.Canvas.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.Canvas);
+            this.panel2.Controls.Add(this.TabTextEditor);
+            this.panel2.Location = new System.Drawing.Point(203, 81);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1471, 886);
+            this.panel2.TabIndex = 29;
+            // 
+            // TabTextEditor
+            // 
+            this.TabTextEditor.Location = new System.Drawing.Point(0, 0);
+            this.TabTextEditor.Multiline = true;
+            this.TabTextEditor.Name = "TabTextEditor";
+            this.TabTextEditor.Size = new System.Drawing.Size(1471, 886);
+            this.TabTextEditor.TabIndex = 13;
+            this.TabTextEditor.TextChanged += new System.EventHandler(this.TabTextEditor_TextChanged);
+            // 
+            // Tab2
+            // 
+            this.Tab2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.Tab2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Tab2.ForeColor = System.Drawing.Color.White;
+            this.Tab2.Location = new System.Drawing.Point(1468, 55);
+            this.Tab2.Name = "Tab2";
+            this.Tab2.Size = new System.Drawing.Size(100, 26);
+            this.Tab2.TabIndex = 31;
+            this.Tab2.Text = "Html";
+            this.Tab2.UseVisualStyleBackColor = false;
+            this.Tab2.Click += new System.EventHandler(this.Tab2_Click);
+            // 
             // CmsMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.Tab2);
+            this.Controls.Add(this.MainTab);
             this.Controls.Add(this.InCmsTestWebSite);
             this.Controls.Add(this.HelpList);
             this.Controls.Add(this.WindowList);
@@ -468,7 +529,6 @@
             this.Controls.Add(this.FileButton);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.Canvas);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.HelpButtonMain);
             this.Controls.Add(this.WindowButton);
@@ -480,6 +540,7 @@
             this.Controls.Add(this.ImageButton);
             this.Controls.Add(this.EditButton);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panel2);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Name = "CmsMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -487,9 +548,11 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Canvas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Canvas)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -507,7 +570,6 @@
         private System.Windows.Forms.Button HelpButtonMain;
         private System.Windows.Forms.Button WindowButton;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox Canvas;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Button FileButton;
@@ -525,5 +587,11 @@
         private System.Windows.Forms.ListBox HelpList;
         private System.Windows.Forms.ListBox WindowList;
         private System.Windows.Forms.Button InCmsTestWebSite;
+        private System.Windows.Forms.OpenFileDialog ImportImageBrowser;
+        private System.Windows.Forms.Button MainTab;
+        private System.Windows.Forms.PictureBox Canvas;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button Tab2;
+        private System.Windows.Forms.TextBox TabTextEditor;
     }
 }

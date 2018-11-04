@@ -117,7 +117,7 @@
     <None Include="Resources\Logo_text.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Properties\TextFile1.txt" />
+    <Content Include="Properties\TextFile1.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="HtmlCode\" />

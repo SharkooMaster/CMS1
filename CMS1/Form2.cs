@@ -78,8 +78,9 @@ namespace CMS1
                 Console.Out.WriteLine(HtmlExportPath);
                 Console.Out.WriteLine(HtmlExportPath + ExportHtmlName + @"\" + "Css");
 
-                if(NewProjectPath.Contains(ExportHtmlName))
+                if (HtmlExportPath.Contains(ExportHtmlName + @"\" + Form1.NewProjectName + ".html"))
                 {
+                    Console.Out.WriteLine(Form1.NewProjectPath);
                     DialogResult ExportErrorResult = MessageBox.Show("You can not export files again since they alread exist. would you like to replace them?", "Error", MessageBoxButtons.YesNo);
                     
                     if (ExportErrorResult == DialogResult.Yes)

@@ -259,6 +259,7 @@
             this.EditList.Size = new System.Drawing.Size(155, 210);
             this.EditList.TabIndex = 19;
             this.EditList.Visible = false;
+            this.EditList.SelectedIndexChanged += new System.EventHandler(this.EditList_SelectedIndexChanged);
             // 
             // LayerList
             // 
@@ -466,12 +467,13 @@
             // 
             this.Canvas.BackColor = System.Drawing.Color.White;
             this.Canvas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Canvas.Location = new System.Drawing.Point(0, 0);
+            this.Canvas.Location = new System.Drawing.Point(-78, 26);
             this.Canvas.Name = "Canvas";
             this.Canvas.Size = new System.Drawing.Size(1471, 886);
             this.Canvas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Canvas.TabIndex = 12;
             this.Canvas.TabStop = false;
+            this.Canvas.Click += new System.EventHandler(this.Canvas_Click);
             // 
             // panel2
             // 

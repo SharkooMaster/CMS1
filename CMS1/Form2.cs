@@ -21,21 +21,7 @@ namespace CMS1
     public partial class CmsMain : Form
     {
 
-        public static string TemplateHtmlText = @"
-<!DOCTYPE html>
-
-< html >
-
-< head >
-
-</ head >
-
-< body >
-
-</ body >
-
-</ html > 
-";
+        public static string TemplateHtmlText ;
 
         public CmsMain()
         {
@@ -43,6 +29,17 @@ namespace CMS1
             this.Text = @"Cms\" + Form1.NewProjectName;
             MainTab.Text = Form1.NewProjectName;
             TabTextEditor.Text = TemplateHtmlText;
+            TabTextEditor.Text = BootStrapTemplateText;
+            TabTextEditor.Show();
+            ImportBootStrap();
+        }
+
+        public static string BootStrapTemplateText;
+        public static StreamReader BootStrapTemplate;
+
+        static void ImportBootStrap()
+        {
+
         }
 
         public static string HtmlExportPath;
@@ -104,7 +101,7 @@ namespace CMS1
                         TestCSS.Close();
                         
                         WriteToTestHtml = new StreamWriter(HtmlExportPath + ExportHtmlName + @"\" + Form1.NewProjectName + ".html");
-                        WriteToTestHtml.WriteLine(TemplateHtmlText);
+                        WriteToTestHtml.WriteLine(BootStrapTemplateText);
 
                         WriteToTestHtml.Flush();
                     }
@@ -118,12 +115,24 @@ namespace CMS1
                     FileStream TestHtml = new FileStream(HtmlExportPath + ExportHtmlName + @"\" + Form1.NewProjectName + ".html", FileMode.OpenOrCreate, FileAccess.Write);
                     string TestHtmlPath = HtmlExportPath + ExportHtmlName + @"\" + Form1.NewProjectName + ".html";
                     FileStream TestCSS = new FileStream(HtmlExportPath + ExportHtmlName + @"\" + "Css" + @"\" + Form1.NewProjectName + ".css", FileMode.OpenOrCreate, FileAccess.Write);
-                    Console.Out.WriteLine(TestHtmlPath);
+                    Console.Out.WriteLine(BootStrapTemplateText);
                     TestHtml.Close();
                     TestCSS.Close();
 
                     WriteToTestHtml = new StreamWriter(HtmlExportPath + ExportHtmlName + @"\" + Form1.NewProjectName + ".html");
-                    WriteToTestHtml.WriteLine(TemplateHtmlText);
+                    using (BootStrapTemplate = new StreamReader(@"C:\Users\Användar\source\repos\CMS1\CMS1\Properties\TextFile1.txt"))
+                    {
+
+                        BootStrapTemplateText = BootStrapTemplate.ReadLine();
+
+                        while ((BootStrapTemplateText = BootStrapTemplate.ReadLine()) != null)
+                        {
+                            Console.WriteLine(BootStrapTemplateText);
+                            WriteToTestHtml.WriteLine(BootStrapTemplateText);
+                        }
+                    }
+                    
+                    Console.Out.WriteLine(WriteToTestHtml);
 
                     WriteToTestHtml.Flush();
                 }
@@ -136,122 +145,52 @@ namespace CMS1
 
         private void FileButton_Click(object sender, EventArgs e)
         {
-            if(FileList.Visible == true)
-            {
-                FileList.Visible = false;
-            }
-            else
-            {
-                FileList.Visible = true;
-            }
+            FileList.Visible = (FileList.Visible == true) ? FileList.Visible = false : FileList.Visible = true;
         }
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            if (EditList.Visible == true)
-            {
-                EditList.Visible = false;
-            }
-            else
-            {
-                EditList.Visible = true;
-            }
+            EditList.Visible = (EditList.Visible == true) ? EditList.Visible = false : EditList.Visible = true;
         }
 
         private void ImageButton_Click(object sender, EventArgs e)
         {
-            if (ImageList.Visible == true)
-            {
-                ImageList.Visible = false;
-            }
-            else
-            {
-                ImageList.Visible = true;
-            }
+            ImageList.Visible = (ImageList.Visible == true) ? ImageList.Visible = false : ImageList.Visible = true;
         }
 
         private void LayerButton_Click(object sender, EventArgs e)
         {
-            if (LayerList.Visible == true)
-            {
-                LayerList.Visible = false;
-            }
-            else
-            {
-                LayerList.Visible = true;
-            }
+            LayerList.Visible = (LayerList.Visible == true) ? LayerList.Visible = false : LayerList.Visible = true;
         }
 
         private void TypeButton_Click(object sender, EventArgs e)
         {
-            if (TypeList.Visible == true)
-            {
-                TypeList.Visible = false;
-            }
-            else
-            {
-                TypeList.Visible = true;
-            }
+            LayerList.Visible = (LayerList.Visible == true) ? LayerList.Visible = false : LayerList.Visible = true;
         }
 
         private void SelectButton_Click(object sender, EventArgs e)
         {
-            if (SelectList.Visible == true)
-            {
-                SelectList.Visible = false;
-            }
-            else
-            {
-                SelectList.Visible = true;
-            }
+            SelectList.Visible = (SelectList.Visible == true) ? SelectList.Visible = false : SelectList.Visible = true;
         }
 
         private void FilterButton_Click(object sender, EventArgs e)
         {
-            if (FilterList.Visible == true)
-            {
-                FilterList.Visible = false;
-            }
-            else
-            {
-                FilterList.Visible = true;
-            }
+            FilterList.Visible = (FilterList.Visible == true) ? FilterList.Visible = false : SelectList.Visible = true;
         }
 
         private void ViewButton_Click(object sender, EventArgs e)
         {
-            if (ViewList.Visible == true)
-            {
-                ViewList.Visible = false;
-            }
-            else
-            {
-                ViewList.Visible = true;
-            }
+            ViewList.Visible = (ViewList.Visible == true) ? ViewList.Visible = false : ViewList.Visible = true;
         }
 
         private void WindowButton_Click(object sender, EventArgs e)
         {
-            if (WindowList.Visible == true)
-            {
-                WindowList.Visible = false;
-            }
-            else
-            {
-                WindowList.Visible = true;
-            }
+            WindowList.Visible = (WindowList.Visible == true) ? WindowList.Visible = false : WindowList.Visible = true;
         }
 
         private void HelpButtonMain_Click(object sender, EventArgs e)
         {
-            if (HelpList.Visible == true)
-            {
-                HelpList.Visible = false;
-            }
-            else
-            {
-                HelpList.Visible = true;
-            }
+            HelpList.Visible = (HelpList.Visible == true) ? HelpList.Visible = false : HelpList.Visible = true;
         }
 
         private void PreviewButton_Click(object sender, EventArgs e)
@@ -374,8 +313,21 @@ namespace CMS1
         private void TabTextEditor_TextChanged(object sender, EventArgs e)
         {
 
+        }
 
+        public static Form4 PageProperties = new Form4();
+
+        private void EditList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PageProperties.ShowDialog();
+        }
+
+        private void Canvas_Click(object sender, EventArgs e)
+        {
 
         }
     }
 }
+
+//Icon tag preset HTML.
+//<link rel="icon" type="image/png" href="Images\Logo\TabIconAVVE.png">\

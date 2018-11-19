@@ -25,17 +25,22 @@ namespace CMS1
             SiteTitle = TitleText_SiteProp.Text;
         }
 
+        private static string BSTemplateText;
+
         private void ApplyButton_SiteProp_Click(object sender, EventArgs e)
         {
             SiteTitle = TitleText_SiteProp.Text;
+            BSTemplateText = CmsMain.BootStrapTemplateText;
 
-            if(SiteTitle == TitleText_SiteProp.Text)
+            if (SiteTitle == TitleText_SiteProp.Text)
             {
-                CmsMain.BootStrapTemplateText.Replace("<!--Title-->", "<title>" + SiteTitle + "</title>");
+                BSTemplateText.Replace("<!--Title-->", "<title>" + SiteTitle + "</title>");
+                CmsMain.WriteToTestHtml.Flush();
             }
             if (ExportIconToSite)
             {
-                CmsMain.BootStrapTemplateText.Replace("<!--Icon-->", "<link rel=\"Icon\" type=\"image/png\" href=\"" + ImportedIconPath + "\">");
+                BSTemplateText.Replace("<!--Icon-->", "<link rel=\"Icon\" type=\"image/png\" href=\"" + ImportedIconPath + "\">");
+                CmsMain.WriteToTestHtml.Flush();
             }
         }
 

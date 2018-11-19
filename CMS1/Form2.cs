@@ -50,7 +50,7 @@ namespace CMS1
         public static bool canPreview = false;
         public static string MachineName = Environment.MachineName;
 
-        static StreamWriter WriteToTestHtml;
+        public static StreamWriter WriteToTestHtml;
 
         public static bool CanWriteToHtml = false;
 

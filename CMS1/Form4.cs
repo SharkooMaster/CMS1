@@ -22,10 +22,6 @@ namespace CMS1
 
         private void TitleText_SiteProp_TextChanged(object sender, EventArgs e)
         {
-            if (FirstTempChange == true)
-            {
-                TitleTempTxt = "<title>" + SiteTitle + "</title>";
-            }
             SiteTitle = TitleText_SiteProp.Text;
         }
 
@@ -34,7 +30,7 @@ namespace CMS1
         //Making the title string changable multiple times.
         static string TitleTempTxt = "<!--Title-->";
         static string TitleTxt;
-        static bool FirstTempChange = false;
+        public static bool ChangeTitle = false;
 
         //Importing icon path.
         static string IconPath;
@@ -47,16 +43,17 @@ namespace CMS1
 
             if (SiteTitle == TitleText_SiteProp.Text)
             {
+                //Bug. Cant change the title after setting it once.
                 BSTemplateText = BSTemplateText.Replace(TitleTempTxt, "<title>" + TitleTxt + "</title>");
-                FirstTempChange = true;
-                Console.Out.WriteLine(SiteTitle);
+                TitleTempTxt = "<title>" + SiteTitle + "</title>";
             }
+
             if (ExportIconToSite)
             {
                 BSTemplateText = BSTemplateText.Replace("<!--Icon-->", "<link rel=\"Icon\" type=\"image/png\" href=\"" + IconPath + "\">");
                 Console.Out.WriteLine(IconPath);
             }
-            CmsMain.WriteToTestHtml.Write("");
+
             CmsMain.WriteToTestHtml.WriteLine(BSTemplateText);
             CmsMain.WriteToTestHtml.Flush();
         }

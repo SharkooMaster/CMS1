@@ -313,7 +313,8 @@ namespace CMS1
 
         private void TabTextEditor_TextChanged(object sender, EventArgs e)
         {
-
+            TabTextEditor.Text = Form4.BSTemplateText;
+            TabTextEditor.Show();
         }
 
         public static Form4 PageProperties = new Form4();

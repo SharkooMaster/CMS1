@@ -129,6 +129,7 @@ namespace CMS1
                         {
                             Console.WriteLine(BootStrapTemplateText);
                             WriteToTestHtml.WriteLine(BootStrapTemplateText);
+                            Form4.BSTemplateText = BootStrapTemplate.ReadToEnd();
                         }
                     }
                     
@@ -175,7 +176,7 @@ namespace CMS1
 
         private void FilterButton_Click(object sender, EventArgs e)
         {
-            FilterList.Visible = (FilterList.Visible == true) ? FilterList.Visible = false : SelectList.Visible = true;
+            FilterList.Visible = (FilterList.Visible == true) ? FilterList.Visible = false : FilterList.Visible = true;
         }
 
         private void ViewButton_Click(object sender, EventArgs e)

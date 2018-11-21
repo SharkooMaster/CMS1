@@ -34,6 +34,8 @@ namespace CMS1
         //Seeting up a bool that will be set as soon as the user finished choosing file path so that (program.cs) can launch the main editor.
         public static bool MainWindow = false;
 
+        static List<string> NameErrorSyntax = new List<string>() { "/",@"\","?","%", "*", ":", "|", "\"", "<", ">", "." };
+
         private void NewProjectButton_Click(object sender, EventArgs e)
         {
 
@@ -41,7 +43,7 @@ namespace CMS1
 
             DialogResult NewProjectResult = folderBrowserDialog1.ShowDialog();
 
-            if(NewProjectResult == DialogResult.OK)
+            if (NewProjectResult == DialogResult.OK)
             {
                 DefaultName = DefaultName + DefaultNameNumber;
 
@@ -49,14 +51,31 @@ namespace CMS1
                 NewProjectPath = NewProjectPath + @"\";
 
                 //Checking to see if the path user has provided contains the exact same FILE or NAME that has bin used before.
-                if (NewProjectPath.Contains(DefaultName + DefaultNameNumber + FileFormat))
+                if (NewProjectPath.Contains(DefaultName + DefaultNameNumber))
                 {
-                    int NewNumber = DefaultNameNumber + 1;
-                    DefaultName += NewNumber;
+                    DefaultNameNumber = DefaultNameNumber + 1;
+                    DefaultName = DefaultName + DefaultNameNumber;
                     Console.Out.WriteLine(DefaultName);
                 }
 
                 NewProjectName = Interaction.InputBox("What do you want the file name to be?", "Name your project", DefaultName);
+
+                for(int ArrayPos = 0; ArrayPos < 10; ArrayPos++)
+                {
+                    if (NewProjectName.Contains(NameErrorSyntax[ArrayPos]))
+                    {
+                        MessageBox.Show("You can not use that name since it contains chracters that are not supported.", "Error");
+                        Console.Out.WriteLine(NewProjectName);
+                        return;
+                    }
+                }
+
+                /*if (NewProjectName.Contains(Errorsyntax[]))
+                {
+                    MessageBox.Show("You can not use that name since it contains chracters that are not supported.","Error");
+                    Console.Out.WriteLine(NewProjectName);
+                    return;
+                }*/
 
                 if(NewProjectName.Length > 0)
                 {

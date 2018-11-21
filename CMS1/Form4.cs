@@ -22,32 +22,49 @@ namespace CMS1
 
         private void TitleText_SiteProp_TextChanged(object sender, EventArgs e)
         {
+            if (FirstTempChange == true)
+            {
+                TitleTempTxt = "<title>" + SiteTitle + "</title>";
+            }
             SiteTitle = TitleText_SiteProp.Text;
         }
 
-        private static string BSTemplateText;
+        public static string BSTemplateText;
+
+        //Making the title string changable multiple times.
+        static string TitleTempTxt = "<!--Title-->";
+        static string TitleTxt;
+        static bool FirstTempChange = false;
+
+        //Importing icon path.
+        static string IconPath;
 
         private void ApplyButton_SiteProp_Click(object sender, EventArgs e)
         {
             SiteTitle = TitleText_SiteProp.Text;
-            BSTemplateText = CmsMain.BootStrapTemplateText;
+            TitleTxt = SiteTitle;
+            Console.Out.WriteLine(BSTemplateText);
 
             if (SiteTitle == TitleText_SiteProp.Text)
             {
-                BSTemplateText.Replace("<!--Title-->", "<title>" + SiteTitle + "</title>");
-                CmsMain.WriteToTestHtml.Flush();
+                BSTemplateText = BSTemplateText.Replace(TitleTempTxt, "<title>" + TitleTxt + "</title>");
+                FirstTempChange = true;
+                Console.Out.WriteLine(SiteTitle);
             }
             if (ExportIconToSite)
             {
-                BSTemplateText.Replace("<!--Icon-->", "<link rel=\"Icon\" type=\"image/png\" href=\"" + ImportedIconPath + "\">");
-                CmsMain.WriteToTestHtml.Flush();
+                BSTemplateText = BSTemplateText.Replace("<!--Icon-->", "<link rel=\"Icon\" type=\"image/png\" href=\"" + IconPath + "\">");
+                Console.Out.WriteLine(IconPath);
             }
+            CmsMain.WriteToTestHtml.Write("");
+            CmsMain.WriteToTestHtml.WriteLine(BSTemplateText);
+            CmsMain.WriteToTestHtml.Flush();
         }
 
         static string IconImgPath;
         static string ImportedIconPath;
 
-        static bool ExportIconToSite = false;
+        private static bool ExportIconToSite = false;
 
         private void ImportIcon_Click(object sender, EventArgs e)
         {
@@ -59,6 +76,7 @@ namespace CMS1
                 IconImgPath = WebSiteIconFileDialogue.FileName;
                 ImportedIconPath = IconImgPath;
                 Console.Out.WriteLine(ImportedIconPath);
+                IconPath = ImportedIconPath;
                 Image IconImg = Image.FromFile(ImportedIconPath);
 
                 ImportedIconPath = Path.GetFileName(NameOfIcon);
